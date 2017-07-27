@@ -1,7 +1,7 @@
 /*
  * runso.c
  *
- * 2006-19-12 : jyf
+ * 2006-19-12 : 
  *
  * Type of Parameters
  *
@@ -96,7 +96,7 @@ int main(int argc, char *argv[])
     strcpy(params_type, argv[argi++]);
     strcpy(funcname, argv[argi]);
 
-    module = dlopen(libname, RTLD_NOW); // RTLD_LAZY
+    module = dlopen(libname, RTLD_NOW); 
 
     if ( !module ) {
         printf("loading module (%s) %s\n", libname, dlerror());
@@ -148,6 +148,7 @@ int main(int argc, char *argv[])
     if ( verbose ) printf("call: %p\n", func);
 
     asm("addl %0, %%esp\n" :: "r" (j*4));
+
     for (i=0; i<j; i++) {
         asm("subl $4, %%esp\n\t"
             "movl %0, (%%esp)\n\t"
